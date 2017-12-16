@@ -15,12 +15,42 @@
     <div class="forma">
       <div class="container settings">
         <div  class="singleSetting">
-          <p>Duration</p>
-          <input id="duration" type="number" name="" value="25">
+          <p onclick="playAudio()">Duration</p>
+          <div  class="menu">
+            <p id="T1">Time</p>
+            <p id="S1">Sound</p>
+          </div>
+            <div class="Time">
+              <label for="duration"><p>minutes</p></label>
+              <input id="duration" type="number" name="" value="25">
+            </div>
+            <div class="Sounds">
+              <audio id="durationEnd" src="audio/Cuckoo.mp3"></audio>
+              <p>Cuckoo</p><img class="listen" src="listen.png">                <p>Baritone</p><img class="listen" src="listen.png">
+              <p>Bell</p><img class="listen" src="listen.png">                  <p>Applause</p><img class="listen" src="listen.png">
+              <p>Magic</p><img class="listen" src="listen.png">                 <p>Horn</p><img class="listen" src="listen.png">
+              <p>Telephone</p><img class="listen" src="listen.png">             <p>Times Up</p><img class="listen" src="listen.png">
+              <p>Psycho</p><img class="listen" src="listen.png">                <p>Watch</p><img class="listen" src="listen.png">
+            </div>
         </div>
         <div  class="singleSetting">
           <p>Break time</p>
-        <input id="breakTime" type="number" name="" value="5">
+          <div  class="menu">
+            <p id="T2">Time</p>
+            <p id="S2">Sound</p>
+          </div>
+          <div class="Time">
+            <label for="breakTime"><p>minutes</p></label>
+            <input id="breakTime" type="number" name="" value="5">
+          </div>
+          <div class="Sounds">
+            <audio id="breakEnd" src="audio/Cuckoo.mp3"></audio>
+            <p>Cuckoo</p><img class="listen" src="listen.png">                <p>Baritone</p><img class="listen" src="listen.png">
+            <p>Bell</p><img class="listen" src="listen.png">                  <p>Applause</p><img class="listen" src="listen.png">
+            <p>Magic</p><img class="listen" src="listen.png">                 <p>Horn</p><img class="listen" src="listen.png">
+            <p>Telephone</p><img class="listen" src="listen.png">             <p>Times Up</p><img class="listen" src="listen.png">
+            <p>Psycho</p><img class="listen" src="listen.png">                <p>Watch</p><img class="listen" src="listen.png">
+          </div>
         </div>
         <div  class="singleSetting">
           <p>Number of sessions</p>
@@ -32,9 +62,13 @@
     <div class="clocks">
     </div>
     <button type="button" id="stopButton">Stop</button>
+
+      <audio id="listen" src=""></audio>
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
       <script src="js.js"></script>
+
+      </audio>
   </body>
 </html>
