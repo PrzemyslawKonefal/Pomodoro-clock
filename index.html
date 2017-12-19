@@ -8,17 +8,19 @@
     <title>Pomodoro</title>
   </head>
   <body>
-
+    <img class="brand" src="ikona.png" alt="">
     <div class="topic">
-      <img class="brand" src="ikona.png" alt="">
-      <p>Pomodoro Technique</p>
+      <p>Pomodoro technique</p>
+      <p>Before you start</p>
+      <p>Contact</p>
+      <p>Donate</p>
     </div>
     <div class="forma">
       <div class="container settings">
         <div  class="singleSetting duration">
           <p>Duration</p>
           <div  class="menu">
-            <p id="T1">Time</p>
+            <p id="T1" class="activeMenu">Time</p>
             <p id="S1">Sound</p>
           </div>
             <div class="Time">
@@ -37,7 +39,7 @@
         <div  class="singleSetting break">
           <p>Break time</p>
           <div  class="menu">
-            <p id="T2">Time</p>
+            <p id="T2" class="activeMenu">Time</p>
             <p id="S2">Sound</p>
           </div>
           <div class="Time">
@@ -53,9 +55,51 @@
             <p>Psycho</p><img class="listen" src="listen.png">                <p>Watch</p><img class="listen" src="listen.png">
           </div>
         </div>
-        <div  class="singleSetting">
-          <p>Number of sessions</p>
-          <input id="numberOfSessions" type="number" name="" value="4">
+        <div  class="singleSetting ">
+          <p>Other settings</p>
+          <div class="menu">
+            <p id="D" class="activeMenu">Different</p>
+            <p id="S3">Sounds</p>
+            <p id="Th">Themes</p>
+          </div>
+                <div class="different">
+                    <p>Number of sessions</p>
+                    <input id="numberOfSessions" type="number" name="" value="4">
+                    <div class="">
+                      <p>Add break at the end</p>
+                      <input id="lastBreak" type="checkbox" checked = "true">
+                      <div class="ifchecked">
+                        <p>Duration in minutes</p>
+                        <input id="lastBreakTime" type="number" value="15">
+                      </div>
+                    </div>
+
+                </div>
+                <div class="soundsSettings">
+                    <p>Sound duration after work</p>
+                    <input id="soundTime1" type="number" value="10" onchange="changeSoundDuration(0)">
+                    <p>Sound duration after break</p>
+                    <input id="soundTime2" type="number" value="10" onchange="changeSoundDuration(1)">
+                    <p>volume</p>
+                    <select id="volume" onchange="changeVolume()">
+                    <option value="1.0">10</option>
+                    <option value="0.9">9</option>
+                    <option value="0.8">8</option>
+                    <option value="0.7">7</option>
+                    <option value="0.6">6</option>
+                    <option value="0.5">5</option>
+                    <option value="0.4">4</option>
+                    <option value="0.3">3</option>
+                    <option value="0.2">2</option>
+                    <option value="0.1">1</option>
+                    <option value="0">0</option>
+                    </select>
+                    <img class="listen VolumeCheck" src="listen.png">
+                </div>
+                <div class="Themes">
+                  dsads
+                </div>
+
         </div>
       </div>
         <button type="button" onclick="createInterval()" class="start">Start</button>
