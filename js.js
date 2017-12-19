@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var mins, secs, interval, isActive, MusicTimeout
 durationEndSound = document.getElementById('durationEnd'),
 breakEndSound = document.getElementById('breakEnd'),
@@ -9,6 +10,20 @@ function createInterval(){
   numberOfSessions = document.getElementById("numberOfSessions").value,
   lastBreakTime = document.getElementById("lastBreakTime").value;
 
+=======
+var mins, secs, interval, isActive,
+durationEndSound = document.getElementById('durationEnd'),
+breakEndSound = document.getElementById('breakEnd'),
+soundTime1=10, soundTime2=10;
+
+$('.T1').trigger('click');
+$('.T2').trigger('click');
+
+function createInterval(){
+  var duration = document.getElementById("duration").value;
+  var breakTime = document.getElementById("breakTime").value;
+  var numberOfSessions = document.getElementById("numberOfSessions").value;
+>>>>>>> e30f4614f84651e17707a9fd44b739a91dd20b0d
   if(duration <=0 || numberOfSessions <=0 || breakTime <=0 ) {alert("Duration Time, Break Time and number of sessions must all be bigger than 0.");return 0;}
   if( $(".clock").length){isActive = true;}
   else isActive = false;
@@ -22,6 +37,7 @@ function createInterval(){
     if(document.getElementById("lastBreak").checked)  $("<div class = 'breakClock clock'><p class = 'min'>"+lastBreakTime+"</p><p class ='sec'>00</p><img class ='closeButton' src='close.png'><div class = 'StopGo'><img class ='play' src='play.png'></div></div>").appendTo(".clocks");
     if(!isActive)activateClock(0);
 }
+<<<<<<< HEAD
 
 function changeVolume(){
   durationEndSound.volume = document.getElementById("volume").value;
@@ -37,6 +53,14 @@ function playSound(sound, duration){
   MusicTimeout = setTimeout(function(){sound.pause();}, duration);
 }
 
+=======
+function playSound(sound, duration){
+  duration *= 1000; // seconds to miliseconds
+  sound.loop = true;
+  sound.play();
+  setTimeout(function(){sound.pause();}, duration);
+}
+>>>>>>> e30f4614f84651e17707a9fd44b739a91dd20b0d
 $(".clocks").on('click', '.closeButton', function(){
   $(this).closest(".clock").hasClass("active")?isActive=true:isActive=false
     $(this).closest(".clock").remove();
@@ -53,11 +77,14 @@ $(".clocks").on('click', '.play', function(){
   else activateClock($(this).closest(".clock").index());
 });
 
+<<<<<<< HEAD
 function changeSoundDuration(x){
   if(x) soundTime2 = document.getElementById("soundTime2").value;
   else  soundTime1 = document.getElementById("soundTime1").value;
 }
 
+=======
+>>>>>>> e30f4614f84651e17707a9fd44b739a91dd20b0d
 function activateClock(clockNum){
     clearInterval(interval);
     $(".clock").removeClass('active');
@@ -123,6 +150,7 @@ $("#S3").click(function(){
   $(this).addClass("activeMenu");
 });
 
+<<<<<<< HEAD
 $("#Th").click(function(){
   $('.soundsSettings, .different').css('display', 'none');
   $('.Themes').css('display', 'block');
@@ -130,6 +158,8 @@ $("#Th").click(function(){
   $(this).addClass("activeMenu");
 });
 $("#lastBreak").click(function(){ $(".ifchecked").toggle();})
+=======
+>>>>>>> e30f4614f84651e17707a9fd44b739a91dd20b0d
 $(".listen").click(function(){
   var index = $(this).index()/2;
   var sound = document.getElementById('listen');
@@ -159,7 +189,11 @@ $(".listen").click(function(){
 
 $(".Sounds > p").click(function(){
    $(this).closest(".Sounds").find("p").css('background', 'rgba(169, 170, 164, 0.19)');
+<<<<<<< HEAD
    $(this).css('background', 'rgba(95, 227, 3, 1)');
+=======
+   $(this).css('background', 'rgb(4, 209, 12)');
+>>>>>>> e30f4614f84651e17707a9fd44b739a91dd20b0d
    var index = (($(this).index()+1)/2);
    var sound;
    if($(this).closest(".singleSetting").hasClass('duration')) sound = durationEndSound;
