@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="css.css">
-    <title>Pomodoro</title>
+    <title>Pomodorrro - Pomodoro clocks</title>
   </head>
   <body>
     <img class="brand" src="ikona.png" alt="">
     <div class="topic">
+      <p>Home</p>
       <p>Pomodoro technique</p>
       <p>Before you start</p>
       <p>Contact</p>
@@ -97,9 +98,14 @@
                     <img class="listen VolumeCheck" src="listen.png">
                 </div>
                 <div class="Themes">
-                  dsads
+                  Clocks in a row
+                  <select id="rows" onchange="refreshDisplay()">
+                      <option value="2">4</option>
+                      <option value="3">3</option>
+                      <option value="10">2</option>
+                      <option value="25">1</option>
+                  </select>
                 </div>
-
         </div>
       </div>
         <button type="button" onclick="createInterval()" class="start">Start</button>
@@ -107,12 +113,12 @@
     <div class="clocks">
     </div>
 
+      <a href="https://facebook.com"><img id="fb" src="facebook.png" alt="facebook"></a>
       <audio id="listen" src=""></audio>
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
       <script src="js.js"></script>
 
-      </audio>
   </body>
 </html>
