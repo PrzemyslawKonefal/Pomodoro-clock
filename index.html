@@ -8,11 +8,10 @@
     <title>Pomodorrro - Pomodoro clocks</title>
   </head>
   <body>
-    <img class="brand" src="ikona.png" alt="">
+    <img class="brand" src="images/ikona.png" alt="">
     <div class="topic">
       <p>Home</p>
-      <p>Pomodoro technique</p>
-      <p>Before you start</p>
+      <p title="Pomodoro explained"><span style="color:rgb(224, 0, 255)">Before </span><span style="color:yellow">you </span><span style="color:#ff751a">start</span></p>
       <p>Contact</p>
       <p>Donate</p>
     </div>
@@ -30,11 +29,11 @@
             </div>
             <div class="Sounds">
               <audio id="durationEnd" src="audio/horn.mp3"></audio>
-              <p>Cuckoo</p><img class="listen" src="listen.png">                <p>Baritone</p><img class="listen" src="listen.png">
-              <p>Bell</p><img class="listen" src="listen.png">                  <p>Applause</p><img class="listen" src="listen.png">
-              <p>Magic</p><img class="listen" src="listen.png">                 <p>Horn</p><img class="listen" src="listen.png">
-              <p>Telephone</p><img class="listen" src="listen.png">             <p>Times Up</p><img class="listen" src="listen.png">
-              <p>Psycho</p><img class="listen" src="listen.png">                <p>Watch</p><img class="listen" src="listen.png">
+              <p>Cuckoo</p><img class="listen" src="images/listen.png">                <p>Baritone</p><img class="listen" src="images/listen.png">
+              <p>Bell</p><img class="listen" src="images/listen.png">                  <p>Applause</p><img class="listen" src="images/listen.png">
+              <p>Magic</p><img class="listen" src="images/listen.png">                 <p>Horn</p><img class="listen" src="images/listen.png">
+              <p>Telephone</p><img class="listen" src="images/listen.png">             <p>Times Up</p><img class="listen" src="images/listen.png">
+              <p>Psycho</p><img class="listen" src="images/listen.png">                <p>Watch</p><img class="listen" src="images/listen.png">
             </div>
         </div>
         <div  class="singleSetting break">
@@ -49,11 +48,11 @@
           </div>
           <div class="Sounds">
             <audio id="breakEnd" src="audio/magic.mp3"></audio>
-            <p>Cuckoo</p><img class="listen" src="listen.png">                <p>Baritone</p><img class="listen" src="listen.png">
-            <p>Bell</p><img class="listen" src="listen.png">                  <p>Applause</p><img class="listen" src="listen.png">
-            <p>Magic</p><img class="listen" src="listen.png">                 <p>Horn</p><img class="listen" src="listen.png">
-            <p>Telephone</p><img class="listen" src="listen.png">             <p>Times Up</p><img class="listen" src="listen.png">
-            <p>Psycho</p><img class="listen" src="listen.png">                <p>Watch</p><img class="listen" src="listen.png">
+            <p>Cuckoo</p><img class="listen" src="images/listen.png">                <p>Baritone</p><img class="listen" src="images/listen.png">
+            <p>Bell</p><img class="listen" src="images/listen.png">                  <p>Applause</p><img class="listen" src="images/listen.png">
+            <p>Magic</p><img class="listen" src="images/listen.png">                 <p>Horn</p><img class="listen" src="images/listen.png">
+            <p>Telephone</p><img class="listen" src="images/listen.png">             <p>Times Up</p><img class="listen" src="images/listen.png">
+            <p>Psycho</p><img class="listen" src="images/listen.png">                <p>Watch</p><img class="listen" src="images/listen.png">
           </div>
         </div>
         <div  class="singleSetting ">
@@ -95,7 +94,7 @@
                     <option value="0.1">1</option>
                     <option value="0">0</option>
                     </select>
-                    <img class="listen VolumeCheck" src="listen.png">
+                    <img class="listen VolumeCheck" src="images/listen.png">
                 </div>
                 <div class="Themes">
                   Clocks in a row
@@ -108,12 +107,16 @@
                 </div>
         </div>
       </div>
+      <div id="LetsGo">
+        <img src="images/arrow.png" alt="arrow">
         <button type="button" onclick="createInterval()" class="start">Start</button>
+        <img src="images/arrow.png" alt="arrow">
+      </div>
     </div>
     <div class="clocks">
     </div>
 
-      <a href="https://facebook.com"><img id="fb" src="facebook.png" alt="facebook"></a>
+      <a href="https://facebook.com"><img id="fb" src="images/facebook.png" alt="facebook"></a>
       <audio id="listen" src=""></audio>
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>

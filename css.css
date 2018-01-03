@@ -1,5 +1,5 @@
 body{
-  background: rgb(0, 180, 198) url(clocks.png) left top repeat;
+  background: rgb(0, 180, 198) url(images/clocks.png) left top repeat;
   margin: 0;
   padding: 0;
   font-family: "opensans",sans-serif,"btcglyph";
@@ -13,11 +13,52 @@ footer{
   margin: 0;
   margin-top: 30px;
 }
-.container{
-  background: #66A1FF;
-  color: white;
+ul{
+  text-align: left;
+  letter-spacing: 2px;
+  font-size: 115%;
+  box-shadow: 0 2px 2px black;
+}
+li:hover{
+text-decoration: underline;
+cursor: pointer;
+}
+h1{
+  padding: 8px 0 8px 0;
+  border-bottom: 2px solid black;
+}
+h2{
+  text-align: left;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+.midParagraph{
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  box-shadow: 0 0px 6px black;
+}
+.paragraph{
+  width: 95%;
+  text-align: left;
+  margin-left: 5%;
+  min-height: 180px;
+  font-size: 18px;
+}
+.paragraph > img{
+  position: relative;
+  height: 165px;
+  float: right;
+  margin-right: 5px;
+  border-radius: 40px;
+}
+.content{
+  background: linear-gradient(#99ff33,yellow, #ff751a);
+  width: 90%;
+  border: 1px solid black;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 0 15px black;
   text-align: center;
-  text-decoration: underline;
+  margin: auto;
 }
 .topic{
   display: flex;
@@ -91,8 +132,6 @@ footer{
 }
 .forma{
   width: 100%;
-  margin: auto;
-  display: block;
 }
 .settings{
   margin: auto;
@@ -113,6 +152,10 @@ footer{
   margin-top: 10px;
   margin-bottom: 10px;
   text-align: center;
+  font-size: 120%;
+}
+#lastBreak{
+  width: 25px;
 }
 .soundsSettings{
   display: none;
@@ -124,8 +167,20 @@ footer{
  font-weight: 600;
  font-size: 22px;
  text-align: center;
- padding-bottom: 7px;
- margin: 0;
+  margin: 0;
+}
+#LetsGo{
+  display: flex;
+  flex-wrap: nowrap;
+}
+#LetsGo > img{
+  height: 60px;
+  margin-left: 31%;
+}
+#LetsGo > img:last-of-type{
+  margin-left: 0;
+  margin-right: 31%;
+  transform: rotateY(180deg);
 }
 .menu{
   height: 35px;
@@ -165,6 +220,14 @@ footer{
   display: block;
   margin: auto;
   height: 50px;
+  text-align: center;
+  border-radius: 15px;
+  border: 1px solid green;
+  transition: .2s ease-in;
+}
+input:focus {
+    outline: none;
+    box-shadow: 0 0 4px green;
 }
 .Sounds{
   width: 100%;
@@ -205,7 +268,7 @@ footer{
   border-radius: 5px;
   box-shadow: 0 0 5px black;
   border: 0;
-  width:         15%;
+  width:         20%;
   height:        55px;
   color:         #ffffff;
   font:          normal 700 48px/50px "Bellota", cursive;
@@ -237,8 +300,8 @@ footer{
   height: 250px;
   margin-right:2%;
   margin-left:2%;
-  margin-bottom: 5px;
-  margin-top: 5px;
+  margin-bottom: 8px;
+  margin-top: 8px;
   border: 2px solid black;
   border-radius: 80px 80px 0px 0;
   font-size: 50px;

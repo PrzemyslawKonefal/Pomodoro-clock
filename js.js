@@ -15,11 +15,11 @@ function createInterval(){
 
   $(".clocks").css("display", "block");
   for(i=1; i<numberOfSessions; i++){
-    $("<div class = 'workClock clock'><p class = 'min'>"+duration+"</p><p class ='sec'>00</p><img class ='closeButton' src='close.png'><div class = 'StopGo'><img class ='play' src='play.png'></div></div>").appendTo(".clocks");
-    $("<div class = 'breakClock clock'><p class = 'min'>"+breakTime+"</p><p class ='sec'>00</p><img class ='closeButton' src='close.png'><div class = 'StopGo'><img class ='play' src='play.png'></div></div>").appendTo(".clocks");
+    $("<div class = 'workClock clock'><p class = 'min'>"+duration+"</p><p class ='sec'>00</p><img class ='closeButton' src='images/close.png'><div class = 'StopGo'><img class ='play' src='images/play.png'></div></div>").appendTo(".clocks");
+    $("<div class = 'breakClock clock'><p class = 'min'>"+breakTime+"</p><p class ='sec'>00</p><img class ='closeButton' src='images/close.png'><div class = 'StopGo'><img class ='play' src='images/play.png'></div></div>").appendTo(".clocks");
   }
-    $("<div class = 'workClock clock'><p class = 'min'>"+duration+"</p><p class ='sec'>00</p><img class ='closeButton' src='close.png'><div class = 'StopGo'><img class ='play' src='play.png'></div></div>").appendTo(".clocks");
-    if(document.getElementById("lastBreak").checked)  $("<div class = 'breakClock clock'><p class = 'min'>"+lastBreakTime+"</p><p class ='sec'>00</p><img class ='closeButton' src='close.png'><div class = 'StopGo'><img class ='play' src='play.png'></div></div>").appendTo(".clocks");
+    $("<div class = 'workClock clock'><p class = 'min'>"+duration+"</p><p class ='sec'>00</p><img class ='closeButton' src='images/close.png'><div class = 'StopGo'><img class ='play' src='images/play.png'></div></div>").appendTo(".clocks");
+    if(document.getElementById("lastBreak").checked)  $("<div class = 'breakClock clock'><p class = 'min'>"+lastBreakTime+"</p><p class ='sec'>00</p><img class ='closeButton' src='images/close.png'><div class = 'StopGo'><img class ='play' src='images/play.png'></div></div>").appendTo(".clocks");
     if(!isActive)activateClock(0);
     refreshDisplay();
     document.querySelector('.clock').scrollIntoView({
@@ -55,7 +55,7 @@ $(".clocks").on('click', '.play', function(){
   $(this).closest(".clock").hasClass("active")?isActive=true:isActive=false
   if(isActive){
     clearInterval(interval);
-    $(this).closest(".play").attr('src','play.png');
+    $(this).closest(".play").attr('src','images/play.png');
     $(this).closest(".clock").removeClass('active');
  }
   else activateClock($(this).closest(".clock").index());
@@ -69,8 +69,8 @@ function changeSoundDuration(x){
 function activateClock(clockNum){
     clearInterval(interval);
     $(".clock").removeClass('active');
-    $(".play").attr('src', 'play.png');
-    $(".play").eq(clockNum).attr('src', 'pause.png');
+    $(".play").attr('src', 'images/play.png');
+    $(".play").eq(clockNum).attr('src', 'images/pause.png');
     $(".clock").eq(clockNum).addClass('active');
     mins = parseInt($(".min").eq(clockNum).html());
     secs = parseInt($(".sec").eq(clockNum).html());
@@ -86,6 +86,7 @@ function activateClock(clockNum){
               else $(".min").eq(clockNum).html(mins);
             if(secs<10)$(".sec").eq(clockNum).html('0'+secs);
               else $(".sec").eq(clockNum).html(secs);
+              $("title").html(mins+":"+secs);
         }, 1000);
 }
 
@@ -139,13 +140,17 @@ $("#Th").click(function(){
 });
 $(".topic > p").click(function(){
   switch($(this).index()){
-    case 0: window.location.href = "file:///C:/Users/Chromosom/Desktop/git/Pomodoro-clock/index.html"; break;
-    case 1: window.location.href = "file:///C:/Users/Chromosom/Desktop/git/Pomodoro-clock/about.html"; break;
-    case 2: window.location.href = "file:///C:/Users/Chromosom/Desktop/git/Pomodoro-clock/index.html"; break;
-    case 3: window.location.href = "file:///C:/Users/Chromosom/Desktop/git/Pomodoro-clock/index.html"; break;
-    case 4: window.location.href = "file:///C:/Users/Chromosom/Desktop/git/Pomodoro-clock/index.html"; break;
+    case 0: window.location.href = "file:///C:/Users/Dell/Desktop/Programowanie/Pomodoro-clock/index.html"; break;
+    case 1: window.location.href = "file:///C:/Users/Dell/Desktop/Programowanie/Pomodoro-clock/about.html"; break;
+    case 2: window.location.href = "file:///C:/Users/Dell/Desktop/Programowanie/Pomodoro-clock/contact.html"; break;
+    case 3: window.location.href = "file:///C:/Users/Dell/Desktop/Programowanie/Pomodoro-clock/donate.html"; break;
   }
 })
+$("li").click(function(){
+  $("h2")[$(this).index()].scrollIntoView({
+      behavior: "smooth", // or "auto" or "instant"
+  });
+});
 $("#lastBreak").click(function(){ $(".ifchecked").toggle();})
 $(".listen").click(function(){
   var index = $(this).index()/2;
