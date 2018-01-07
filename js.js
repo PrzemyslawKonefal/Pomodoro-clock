@@ -1,13 +1,13 @@
 var mins, secs, interval, isActive, MusicTimeout
 durationEndSound = document.getElementById('durationEnd'),
 breakEndSound = document.getElementById('breakEnd'),
-soundTime1=10, soundTime2=10;
+soundTime1=6, soundTime2=6;
 
 function createInterval(){
   var duration = document.getElementById("duration").value,
-  breakTime = document.getElementById("breakTime").value,
-  numberOfSessions = document.getElementById("numberOfSessions").value,
-  lastBreakTime = document.getElementById("lastBreakTime").value;
+      breakTime = document.getElementById("breakTime").value,
+      numberOfSessions = document.getElementById("numberOfSessions").value,
+      lastBreakTime = document.getElementById("lastBreakTime").value;
 
   if(duration <=0 || numberOfSessions <=0 || breakTime <=0 ) {alert("Duration Time, Break Time and number of sessions must all be bigger than 0.");return 0;}
   if( $(".clock").length){isActive = true;}
@@ -26,7 +26,10 @@ function createInterval(){
     behavior: 'smooth'
 });
 }
-
+function changeColor(x){
+  if(x) $(".clock").css('background', document.getElementById("paused-color").value);
+        $(".active").css('background', document.getElementById("active-color").value);// We refresh .active unconditionally to avoid class .clock being over it
+}
 function changeVolume(){
   durationEndSound.volume = document.getElementById("volume").value;
   breakEndSound.volume = document.getElementById("volume").value;
@@ -35,10 +38,9 @@ function changeVolume(){
 function refreshDisplay(){
   $(".clock").css('margin-left', document.getElementById("rows").value +"%");
   $(".clock").css('margin-right', document.getElementById("rows").value +"%");
-  console.log(document.getElementById("rows").value);
 }
 function playSound(sound, duration){
-  clearTimeout(MusicTimeout); //prevent from pausing sound while clicked more than once
+  clearTimeout(MusicTimeout); //prevents from pausing sound while clicked more than once
   duration *= 1000; // seconds to miliseconds
   sound.loop = true;
   sound.play();
@@ -69,24 +71,29 @@ function changeSoundDuration(x){
 function activateClock(clockNum){
     clearInterval(interval);
     $(".clock").removeClass('active');
+    $(".clock").eq(clockNum).addClass('active');
     $(".play").attr('src', 'images/play.png');
     $(".play").eq(clockNum).attr('src', 'images/pause.png');
-    $(".clock").eq(clockNum).addClass('active');
     mins = parseInt($(".min").eq(clockNum).html());
     secs = parseInt($(".sec").eq(clockNum).html());
+    var min, sec; // variables needed to change both clock time nad title time without constant variable type changes.
       interval = setInterval(function(){
             secs--;
             if(mins<=0 && secs <=0){
               if($(".clock").eq(clockNum).hasClass("workClock")) playSound(durationEndSound, soundTime1);
                else playSound(breakEndSound, soundTime2);
-               $(".clock").eq(clockNum).remove(); activateClock(clockNum);
+               $(".clock").eq(clockNum).remove();
+               if($(".clock").length)activateClock(clockNum);
+               else { $("title").html("Catch Up - Pomodoro clocks");$(".clocks").css("display", "none");clearInterval(interval); return 0;}
              }
               else if(secs <=0) {secs=59; mins--;}
-            if(mins<10)$(".min").eq(clockNum).html('0'+mins);
-              else $(".min").eq(clockNum).html(mins);
-            if(secs<10)$(".sec").eq(clockNum).html('0'+secs);
-              else $(".sec").eq(clockNum).html(secs);
-              $("title").html(mins+":"+secs);
+            if(mins<10)min = '0'+mins;
+              else min =mins;
+            if(secs<10)sec = '0'+secs;
+              else sec = secs;
+              $(".min").eq(clockNum).html(min);
+              $(".sec").eq(clockNum).html(sec);
+              $("title").html(min+":"+sec);
         }, 1000);
 }
 
@@ -142,15 +149,21 @@ $(".topic > p").click(function(){
   switch($(this).index()){
     case 0: window.location.href = "file:///C:/Users/Dell/Desktop/Programowanie/Pomodoro-clock/index.html"; break;
     case 1: window.location.href = "file:///C:/Users/Dell/Desktop/Programowanie/Pomodoro-clock/about.html"; break;
-    case 2: window.location.href = "file:///C:/Users/Dell/Desktop/Programowanie/Pomodoro-clock/contact.html"; break;
     case 3: window.location.href = "file:///C:/Users/Dell/Desktop/Programowanie/Pomodoro-clock/donate.html"; break;
   }
 })
-$("li").click(function(){
+$(".topics > li").click(function(){
   $("h2")[$(this).index()].scrollIntoView({
       behavior: "smooth", // or "auto" or "instant"
+      block: "start"
   });
 });
+$("#Contact-drop").hover(function() {
+  $("#Contact").toggleClass("Contact-Active");
+});
+$("#Contact-drop").find("img").eq(0).click(function(){
+  $("#Contact-drop").find("p").toggle();
+})
 $("#lastBreak").click(function(){ $(".ifchecked").toggle();})
 $(".listen").click(function(){
   var index = $(this).index()/2;

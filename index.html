@@ -5,20 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="css.css">
-    <title>Pomodorrro - Pomodoro clocks</title>
+    <link rel="icon" href="images/CatchUpIcon.png" type="image/gif" sizes="32x32">
+    <title>Catch Up - Pomodoro clocks</title>
+    <meta name="description" content="Learn and work smarter, more effective with preconfigured Pomodoro clocks. Or Create your own methods!">
+    <meta name="keywords" content="Pomodoro, Effective, Clocks, Workflow, Time management, Focus, Planning">
   </head>
   <body>
     <img class="brand" src="images/ikona.png" alt="">
     <div class="topic">
       <p>Home</p>
-      <p title="Pomodoro explained"><span style="color:rgb(224, 0, 255)">Before </span><span style="color:yellow">you </span><span style="color:#ff751a">start</span></p>
-      <p>Contact</p>
+      <p title="Pomodoro explained"><span style="color:#a000cd">Before </span><span style="color:#c600ff">you </span><span style="color:#cf3cfa">start</span></p>
+      <p id="Contact" value="0">Contact</p>
+      <div id="Contact-drop">
+        <img src="images/mail.png" alt="Email"> <p>przemyslaw.konefal@gmail.com</p>
+        <a href="https://github.com/PrzemyslawKonefal"> <img src="images/github.png" alt="Github"></a>
+        <a href="https://www.facebook.com/unitedforglory"> <img src="images/facebookMe.png" alt="Facebook"></a>
+      </div>
       <p>Donate</p>
     </div>
     <div class="forma">
+
       <div class="container settings">
         <div  class="singleSetting duration">
-          <p>Duration</p>
+          <p>Work Time</p>
           <div  class="menu">
             <p id="T1" class="activeMenu">Time</p>
             <p id="S1">Sound</p>
@@ -28,8 +37,8 @@
               <input id="duration" type="number" value="25">
             </div>
             <div class="Sounds">
-              <audio id="durationEnd" src="audio/horn.mp3"></audio>
-              <p>Cuckoo</p><img class="listen" src="images/listen.png">                <p>Baritone</p><img class="listen" src="images/listen.png">
+              <audio id="durationEnd" src="audio/cuckoo.mp3"></audio>
+              <p style="background: rgba(95, 227, 3, 1);">Cuckoo</p><img class="listen" src="images/listen.png">                <p>Baritone</p><img class="listen" src="images/listen.png">
               <p>Bell</p><img class="listen" src="images/listen.png">                  <p>Applause</p><img class="listen" src="images/listen.png">
               <p>Magic</p><img class="listen" src="images/listen.png">                 <p>Horn</p><img class="listen" src="images/listen.png">
               <p>Telephone</p><img class="listen" src="images/listen.png">             <p>Times Up</p><img class="listen" src="images/listen.png">
@@ -50,7 +59,7 @@
             <audio id="breakEnd" src="audio/magic.mp3"></audio>
             <p>Cuckoo</p><img class="listen" src="images/listen.png">                <p>Baritone</p><img class="listen" src="images/listen.png">
             <p>Bell</p><img class="listen" src="images/listen.png">                  <p>Applause</p><img class="listen" src="images/listen.png">
-            <p>Magic</p><img class="listen" src="images/listen.png">                 <p>Horn</p><img class="listen" src="images/listen.png">
+            <p style="background: rgba(95, 227, 3, 1);">Magic</p><img class="listen" src="images/listen.png">                 <p>Horn</p><img class="listen" src="images/listen.png">
             <p>Telephone</p><img class="listen" src="images/listen.png">             <p>Times Up</p><img class="listen" src="images/listen.png">
             <p>Psycho</p><img class="listen" src="images/listen.png">                <p>Watch</p><img class="listen" src="images/listen.png">
           </div>
@@ -58,9 +67,9 @@
         <div  class="singleSetting ">
           <p>Other settings</p>
           <div class="menu">
-            <p id="D" class="activeMenu">Different</p>
-            <p id="S3">Sounds</p>
-            <p id="Th">Themes</p>
+            <p  id="D" class="activeMenu">Different</p>
+            <p  id="S3">Sounds</p>
+            <p  id="Th">Apperance</p>
           </div>
                 <div class="different">
                     <p>Number of sessions</p>
@@ -77,9 +86,9 @@
                 </div>
                 <div class="soundsSettings">
                     <p>Sound duration after work</p>
-                    <input id="soundTime1" type="number" value="10" onchange="changeSoundDuration(0)">
+                    <input id="soundTime1" type="number" value="6" onchange="changeSoundDuration(0)">
                     <p>Sound duration after break</p>
-                    <input id="soundTime2" type="number" value="10" onchange="changeSoundDuration(1)">
+                    <input id="soundTime2" type="number" value="6" onchange="changeSoundDuration(1)">
                     <p>volume</p>
                     <select id="volume" onchange="changeVolume()">
                     <option value="1.0">10</option>
@@ -97,13 +106,22 @@
                     <img class="listen VolumeCheck" src="images/listen.png">
                 </div>
                 <div class="Themes">
-                  Clocks in a row
+                <div style="display: block"> Clocks in a row
                   <select id="rows" onchange="refreshDisplay()">
                       <option value="2">4</option>
                       <option value="3">3</option>
                       <option value="10">2</option>
                       <option value="25">1</option>
                   </select>
+                  </div>
+                  <div class="ColorPick">
+                    Color of activated clock
+                    <input type="color" id="active-color" value="#95ff00" onchange="changeColor(0)">
+                  </div>
+                  <div class="ColorPick">
+                    Color of paused clock
+                    <input type="color" id="paused-color" value="#db7d00" onchange="changeColor(1)">
+                  </div>
                 </div>
         </div>
       </div>
