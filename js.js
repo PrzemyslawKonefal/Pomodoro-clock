@@ -22,6 +22,7 @@ function createInterval(){
     if(document.getElementById("lastBreak").checked)  $("<div class = 'breakClock clock'><p class = 'min'>"+lastBreakTime+"</p><p class ='sec'>00</p><img class ='closeButton' src='images/close.png'><div class = 'StopGo'><img class ='play' src='images/play.png'></div></div>").appendTo(".clocks");
     if(!isActive)activateClock(0);
     refreshDisplay();
+    changeColor(1); //refreshing elements
     document.querySelector('.clock').scrollIntoView({
     behavior: 'smooth'
 });
@@ -59,8 +60,9 @@ $(".clocks").on('click', '.play', function(){
     clearInterval(interval);
     $(this).closest(".play").attr('src','images/play.png');
     $(this).closest(".clock").removeClass('active');
+    changeColor(1); //refreshing elements
  }
-  else activateClock($(this).closest(".clock").index());
+  else activateClock($(this).closest(".clock").index()); changeColor(1); //refreshing elements
 });
 
 function changeSoundDuration(x){
@@ -74,6 +76,7 @@ function activateClock(clockNum){
     $(".clock").eq(clockNum).addClass('active');
     $(".play").attr('src', 'images/play.png');
     $(".play").eq(clockNum).attr('src', 'images/pause.png');
+    changeColor(1);
     mins = parseInt($(".min").eq(clockNum).html());
     secs = parseInt($(".sec").eq(clockNum).html());
     var min, sec; // variables needed to change both clock time nad title time without constant variable type changes.
@@ -96,7 +99,30 @@ function activateClock(clockNum){
               $("title").html(min+":"+sec);
         }, 1000);
 }
+$("#listTrigger").click(function(){
+  $('.drop').toggleClass("drop-active");
+  $("#listTrigger").toggleClass("listTrigger-active");
+});
+function CreateTask(){
+  var title = document.getElementById("taskTitle").value;
+  if (title === '') alert("You forgot to name your task!");
+  else {
+    $("<div class='task'><li></li><p class='endTask'>x</p></div>").appendTo("#list");
+    $(".task:last").find("li").html(title);
+    document.getElementById("taskTitle").value = ""; // title = ""; somehow doesnt work
+    $("#taskTitle").focus();
+    if($("#list li").length>6)  $("#list").css("overflow-y", "scroll");
+  }
+}
+$("#list").on('click', '.endTask', function(){
+  $(this).closest("div").remove();
+  if($("#list li").length<=6) $("#list").css("overflow-y", "hidden");
+});
+$("#list").on('click', 'li', function(){
+  $(this).closest("li").toggleClass("li-done");
+  $(this).closest("div").toggleClass("task-done task");
 
+});
 $("#T1").click(function(){
     $('.Sounds').eq(0).css('display', 'none');
     $('.Time').eq(0).css('display', 'block');

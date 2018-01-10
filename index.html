@@ -11,7 +11,6 @@
     <meta name="keywords" content="Pomodoro, Effective, Clocks, Workflow, Time management, Focus, Planning">
   </head>
   <body>
-    <img class="brand" src="images/ikona.png" alt="">
     <div class="topic">
       <p>Home</p>
       <p title="Pomodoro explained"><span style="color:#a000cd">Before </span><span style="color:#c600ff">you </span><span style="color:#cf3cfa">start</span></p>
@@ -23,8 +22,24 @@
       </div>
       <p>Donate</p>
     </div>
-    <div class="forma">
+    <div class="ToDo">
+      <div class="drop">
+        <h3>To Do List</h3>
+        <div id="taskCreator">
+          <input id="taskTitle" type="text" placeholder="Task Title" >
+          <p onclick="CreateTask()">Add</p>
+        </div>
+        <ul id="list">
+          <div class="task"><li>Create a To Do list</li><p class="endTask">x</p></div>
+          <div class="task"><li>Create a To Do list</li><p class="endTask">x</p></div>
 
+        </ul>
+
+      </div>
+      <img id="listTrigger" src="images/arrow2.png" alt="arrow">
+    </div>
+
+    <div class="forma">
       <div class="container settings">
         <div  class="singleSetting duration">
           <p>Work Time</p>
