@@ -3,6 +3,8 @@ durationEndSound = document.getElementById('durationEnd'),
 breakEndSound = document.getElementById('breakEnd'),
 soundTime1=6, soundTime2=6;
 
+$("#Contact-drop").toggle();
+
 function createInterval(){
   var duration = document.getElementById("duration").value,
       breakTime = document.getElementById("breakTime").value,
@@ -173,9 +175,9 @@ $("#Th").click(function(){
 });
 $(".topic > p").click(function(){
   switch($(this).index()){
-    case 0: window.location.href = "file:///C:/Users/Dell/Desktop/Programowanie/Pomodoro-clock/index.html"; break;
-    case 1: window.location.href = "file:///C:/Users/Dell/Desktop/Programowanie/Pomodoro-clock/about.html"; break;
-    case 3: window.location.href = "file:///C:/Users/Dell/Desktop/Programowanie/Pomodoro-clock/donate.html"; break;
+    case 0: window.location.href = "index.html"; break;
+    case 1: window.location.href = "about.html"; break;
+    case 3: window.location.href = "donate.html"; break;
   }
 })
 $(".topics > li").click(function(){
@@ -184,8 +186,12 @@ $(".topics > li").click(function(){
       block: "start"
   });
 });
-$("#Contact-drop").hover(function() {
+$("#Contact").click(function(){
   $("#Contact").toggleClass("Contact-Active");
+  $("#Contact-drop").toggle();
+});
+$("#Contact-drop").hover(function() {
+  if(!$("#Contact").hasClass('Contact-Active')) $("#Contact").addClass("Contact-Active");
 });
 $("#Contact-drop").find("img").eq(0).click(function(){
   $("#Contact-drop").find("p").toggle();

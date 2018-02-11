@@ -5,20 +5,14 @@ body{
   font-family: "opensans",sans-serif,"btcglyph";
   height: 100%;
 }
-footer{
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 150px;
-  background: rgba(67, 30, 119, 0.8);
-  margin: 0;
-  margin-top: 30px;
-}
+
 .ToDo{
   position: fixed;
   top: 85px;
   width: 35%;
   z-index: 5;
+  min-width: 289px;
+  max-width: 500px;
 }
   #listTrigger{
   display: inline-block;
@@ -121,12 +115,17 @@ footer{
   height: 50px;
   width: 100%;
   border-bottom: 1px solid black;
+  overflow: visible;
+}
+.task:hover{
+ background: #32c932;
 }
 .task-done{
   height: 50px;
   width: 100%;
   border-bottom: 1px solid black;
-  background: #ff05fa;
+  overflow: visible;
+  background: #00ff00;
 }
 .task-done::before{
   content: '';
@@ -171,7 +170,7 @@ h1{
 }
 h2{
   text-align: left;
-  margin-left: 5px;
+  margin-left: 15px;
   margin-top: 5px;
 }
 h3{
@@ -202,7 +201,6 @@ h3{
   border-radius: 40px;
   box-shadow: 0 2px 8px black;
 }
-
 .content{
   background: linear-gradient(#99ff33,yellow, #ff751a);
   width: 90%;
@@ -226,49 +224,41 @@ h3{
 .Contact-Active{
   background: rgb(70, 66, 66);
   border-top: 2px solid black;
-  z-index: 3;
+  z-index: 8;
   box-shadow: 0px -5px 10px black;
 }
-#Contact:hover{
-  border-top: 2px solid black;
-  z-index: 3;
-  cursor:auto;
-}
-#Contact:hover + #Contact-drop{
-  display: flex;
-}
+
 #Contact-drop{
-  display: none;
+  display: flex;
   position: absolute;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   top: 77.5px;
   width: 100%;
-  height: 80px;
-  z-index: 2;
+  height: 120px;
+  z-index: 7;
   background: rgba(70, 66, 66, 1);
   border: 2px solid rgb(0, 0, 0);
   box-shadow: 0 0 8px black;
-}
-#Contact-drop:hover{
-  display: flex;
 }
 #Contact-drop  img{
   height: 50px;
   filter:grayscale(90%);
   transition: .3s ease;
   cursor: pointer;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 #Contact-drop  img:hover{
- filter:grayscale(0%);
+ filter: brightness(105%);
 }
-#Contact-drop > p{
-  width: 5%;
-  display: none;
+#Contact-drop p{
   position: absolute;
-  left: 21%;
+
+  left: 90px;
+  display: none;
   color: rgb(0, 171, 255);
-  font-size: 140%;
+  font-size: 130%;
   font-weight: 600;
   text-shadow: 1px 1px 1px black;
 }
@@ -362,7 +352,6 @@ h3{
   background: rgba(0,0,0, 0);
 }
 .singleSetting{
-  display: relative;
   width: 30%;
   background: linear-gradient(#99ff33,yellow, #ff751a);
   height: 360px;
@@ -372,6 +361,7 @@ h3{
   margin-bottom: 10px;
   text-align: center;
   font-size: 120%;
+  overflow: hidden;
 }
 #lastBreak{
   width: 25px;
@@ -391,6 +381,7 @@ h3{
 #LetsGo{
   display: flex;
   flex-wrap: nowrap;
+  justify-content: space-around;
 }
 #LetsGo > img{
   height: 60px;
@@ -412,10 +403,10 @@ h3{
   background: rgba(0,0,0, 0.3);
   border-bottom: 2px dashed black;
   border-top: 2px dashed black;
+  font-size: 24px;
 
 }
 .menu >p{
-  font-size: 24px;
   display: inline;
   width: 50%;
   height: 100%;
@@ -425,6 +416,9 @@ h3{
   background: rgba(0, 0, 0, 0.4);
   color: white;
   cursor: pointer;
+}
+.menu:last-of-type{
+  font-size: 18px;
 }
 
 .Time{
@@ -483,18 +477,20 @@ input:focus {
   display: block;
   text-align: center;
   margin: auto;
-  background:    #8a78be;
-  background:    -webkit-linear-gradient(#8a78be, #351c75);
-  background:    linear-gradient(#8a78be, #351c75);
+  background: #8a78be;
+  background: -webkit-linear-gradient(#8a78be, #351c75);
+  background: linear-gradient(#8a78be, #351c75);
   border-radius: 5px;
   box-shadow: 0 0 5px black;
   border: 0;
-  width:         20%;
-  height:        55px;
-  color:         #ffffff;
-  font:          normal 700 48px/50px "Bellota", cursive;
-  text-shadow:   1px 1px #000000;
+  width: 20%;
+  height: 55px;
+  color: #fff;
+  font: 48px/48px "Bellota", cursive;
+  text-shadow: 1px 1px #000000;
   margin-bottom: 8px;
+  border: 1px solid black;
+  transition: .3s ease;
 }
 .start:hover{
   cursor: pointer;
@@ -582,12 +578,44 @@ input:focus {
 .play{
   margin: 0 auto;
   padding: 0;
-  left: 0;
-  bottom: : 0px;
   height: 50px;
   transition-delay: 0.2s;
   transition: 0.2s ease-in;
 }
 .Themes{
   display: none;
+}
+@media only screen and (max-width: 991px){
+ .singleSetting  input{
+   width: 70%;
+ }
+ .settings{
+   flex-wrap: wrap;
+ }
+ .singleSetting{
+   width: 100%;
+ }
+}
+@media only screen and (max-width: 727px){
+.topic > p{
+  font-size: 26px;
+}
+.start {
+  font: 26px/26px "Bellota", cursive;
+}
+}
+@media only screen and (max-width: 630px){
+.topic > p{
+  font-size: 22px;
+}
+}
+@media only screen and (max-width: 540px){
+.topic > p{
+  font-size: 18px;
+}
+}
+@media only screen and (max-width: 450px){
+.topic > p{
+  font-size: 12px;
+}
 }
