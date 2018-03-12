@@ -1,5 +1,5 @@
 body{
-  background: #00b4c6 url(images/clocks.png) left top repeat;
+  background: #00b4c6 url(images/clocks.png) left top repeat; /* */
   margin: 0;
   padding: 0;
   font-family: "opensans",sans-serif,"btcglyph";
@@ -90,7 +90,7 @@ body{
     margin: 0;
     padding: 0;
     margin-right: 1px;
-    height: 300px;
+    height: 60vh;
 }
 #list li {
     display: inline-block;
@@ -126,17 +126,6 @@ body{
   border-bottom: 1px solid black;
   overflow: visible;
   background: #00ff00;
-}
-.task-done::before{
-  content: '';
-  position: absolute;
-  border-color: ;
-  border-style: solid;
-  border-width: 0 2px 3px 0;
-  transform: rotate(45deg);
-  left: 5%;
-  height: 35px;
-  width: 12px;
 }
 .endTask{
   cursor: pointer;
@@ -193,14 +182,6 @@ h3{
   min-height: 180px;
   font-size: 18px;
 }
-.paragraph > img{
-  position: relative;
-  height: 200px;
-  float: right;
-  margin-right: 5px;
-  border-radius: 40px;
-  box-shadow: 0 2px 8px black;
-}
 .content{
   background: linear-gradient(#99ff33,yellow, #ff751a);
   width: 90%;
@@ -225,7 +206,6 @@ h3{
   background: rgb(70, 66, 66);
   border-top: 2px solid black;
   z-index: 8;
-  box-shadow: 0px -5px 10px black;
 }
 
 #Contact-drop{
@@ -254,7 +234,6 @@ h3{
 }
 #Contact-drop p{
   position: absolute;
-
   left: 90px;
   display: none;
   color: rgb(0, 171, 255);
@@ -381,15 +360,14 @@ h3{
 #LetsGo{
   display: flex;
   flex-wrap: nowrap;
-  justify-content: space-around;
+  justify-content: center;
 }
 #LetsGo > img{
   height: 60px;
-  margin-left: 31%;
+  margin: 5px;
+  margin-top: 0;
 }
 #LetsGo > img:last-of-type{
-  margin-left: 0;
-  margin-right: 31%;
   transform: rotateY(180deg);
 }
 .menu{
@@ -474,27 +452,23 @@ input:focus {
   width: 10%;
 }
 .start{
-  display: block;
-  text-align: center;
-  margin: auto;
-  background: #8a78be;
-  background: -webkit-linear-gradient(#8a78be, #351c75);
-  background: linear-gradient(#8a78be, #351c75);
+  padding: 0 15px 0 15px;
+  background:#351c75;
   border-radius: 5px;
-  box-shadow: 0 0 5px black;
-  border: 0;
-  width: 20%;
   height: 55px;
   color: #fff;
-  font: 48px/48px "Bellota", cursive;
-  text-shadow: 1px 1px #000000;
+  font: 30px/30px "Bellota", cursive;
   margin-bottom: 8px;
   border: 1px solid black;
-  transition: .3s ease;
+  transition: .4s ease;
 }
 .start:hover{
+  background: #fff;
+  color: #351c75;
   cursor: pointer;
-  box-shadow:  1px 1px 10px black;
+}
+.start:focus{
+  outline: none;
 }
 .clocks{
   text-align: center;
@@ -595,6 +569,9 @@ input:focus {
  .singleSetting{
    width: 100%;
  }
+ .ToDo{
+   width: 85%;
+ }
 }
 @media only screen and (max-width: 727px){
 .topic > p{
@@ -615,7 +592,8 @@ input:focus {
 }
 }
 @media only screen and (max-width: 450px){
-.topic > p{
-  font-size: 12px;
+
+.start{
+
 }
 }

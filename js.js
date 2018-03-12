@@ -91,7 +91,7 @@ function activateClock(clockNum){
                if($(".clock").length)activateClock(clockNum);
                else { $("title").html("Catch Up - Pomodoro clocks");$(".clocks").css("display", "none");clearInterval(interval); return 0;}
              }
-              else if(secs <=0) {secs=59; mins--;}
+            else if(secs <=0) {secs=59; mins--;}
             if(mins<10)min = '0'+mins;
               else min =mins;
             if(secs<10)sec = '0'+secs;
